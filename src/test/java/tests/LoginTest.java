@@ -3,13 +3,15 @@ package tests;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+import static user.UserFactory.withAdminPermission;
 
 public class LoginTest extends BaseTest {
     @Test
     public void correctLogin() {
         loginPage.open();
-        loginPage.login(user, password);
+        loginPage.login(withAdminPermission());
         assertTrue(productPage.titleIsDisplayed());
         assertEquals(productPage.getTitle(), "Products");
     }

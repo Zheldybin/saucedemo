@@ -12,18 +12,20 @@
         <maven.compiler.source>24</maven.compiler.source>
         <maven.compiler.target>24</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <testng.version>7.11.0</testng.version>
+        <selenium.version>4.32.0</selenium.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.32.0</version>
+            <version>${selenium.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.11.0</version>
+            <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

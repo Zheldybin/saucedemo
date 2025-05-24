@@ -1,19 +1,30 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import static enums.DepartmentNaming.PRODUCTS;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static user.UserFactory.withAdminPermission;
 
 public class LoginTest extends BaseTest {
-    @Test
+    @Epic("Модуль логина интернет-магазина")
+    @Feature("Юридические лица")
+    @Story("STG")
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("Желдыбин Анатолий zheldynin.aa@mail.ru")
+    @TmsLink("saucedemo")
+    @Issue("2")
+    @Flaky
+    @Test(description = "Проверка авторизации")
     public void correctLogin() {
-        loginPage.open();
-        loginPage.login(withAdminPermission());
+        loginPage
+                .open()
+                .login(withAdminPermission());
         assertTrue(productPage.titleIsDisplayed());
-        assertEquals(productPage.getTitle(), "Products");
+        assertEquals(productPage.getTitle(), PRODUCTS.getDisplayName());
     }
 
     @DataProvider(name = "incorrectLoginDate")
@@ -25,11 +36,18 @@ public class LoginTest extends BaseTest {
         };
     }
 
+    @Epic("Модуль логина интернет-магазина")
+    @Feature("Юридические лица")
+    @Story("STG")
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("Желдыбин Анатолий zheldynin.aa@mail.ru")
+    @TmsLink("saucedemo")
+    @Issue("2")
     @Test(dataProvider = "incorrectLoginDate")
     public void incorrectLogin(String user, String password, String error) {
-        loginPage.open();
-        loginPage.login(user, password);
+        loginPage
+                .open()
+                .login(user, password);
         assertEquals(loginPage.getErrorMsg(), error);
     }
 }
-

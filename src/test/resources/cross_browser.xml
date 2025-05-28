@@ -9,7 +9,6 @@
         </classes>
     </test> <!-- Test -->
 
-
     <test name="Edge">
         <classes>
             <class name="tests.AddGoodsToCartTest"/>

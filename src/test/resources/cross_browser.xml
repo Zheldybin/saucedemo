@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="Saucedemmmo smoke test" parallel="classes">
+
+    <test name="Chrome">
+        <classes>
+            <class name="tests.LoginTest"/>
+            <parameter name="browser" value="chrome"></parameter>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="Edge">
+        <classes>
+            <class name="tests.AddGoodsToCartTest"/>
+            <parameter name="browser" value="edge"></parameter>
+        </classes>
+    </test> <!-- Test -->
+
+</suite>
